@@ -1,101 +1,92 @@
-import Image from "next/image";
+import Image from 'next/image'
+import { LinkedinIcon as LinkedIn, GithubIcon as GitHub, GitlabIcon as GitLab } from 'lucide-react'
+import BackgroundTexture from './components/BackgroundTexture'
+import Script from 'next/script'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <Script id="schema-script" type="application/ld+json" dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Jasper Timmer",
+          "url": "https://www.jaspertimmer.nl",
+          "sameAs": [
+            "https://www.linkedin.com/in/jjwtimmer",
+            "https://github.com/jjwtimmer",
+            "https://gitlab.com/jjwtimmer"
+          ],
+          "jobTitle": "Tech lead",
+          "description": "Gets excited from connecting dots between people, teams and tech.",
+        })
+      }} />
+      <div className="min-h-screen bg-slate-900">
+        <BackgroundTexture />
+        <header className="w-full bg-slate-800 py-4 sm:py-6">
+          <div className="container mx-auto px-4">
+            <h1 className="text-3xl sm:text-4xl font-bold text-white">Jasper Timmer</h1>
+          </div>
+        </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+        <main className="container mx-auto px-4 py-6 sm:py-8">
+          <section className="mb-8 sm:mb-12 flex flex-col md:flex-row items-center justify-between bg-white bg-opacity-10 rounded-lg p-6 sm:p-8 backdrop-blur-sm">
+            <div className="w-full md:w-1/2 mb-6 md:mb-0 flex justify-center">
+              <Image
+                  src="/img/jasper.jpg?height=200&width=200"
+                  alt="Jasper Timmer - Tech lead"
+                  width={200}
+                  height={200}
+                  className="rounded-full border-4 border-orange-400 shadow-lg"
+              />
+            </div>
+            <div className="w-full md:w-1/2 text-white">
+              <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Hello, I&apos;m Jasper</h2>
+              <p className="text-base sm:text-xl mb-6">
+                <ul>
+                  <li>Natural helicopter-view on the situation.</li>
+                  <li>Always on the lookout for new tech, but realistic in what will work long term.</li>
+                  <li>Gets excited from connecting dots between people, teams and tech.</li>
+                </ul>
+              </p>
+              <nav className="flex flex-wrap justify-center sm:justify-start gap-4" aria-label="Social media links">
+                <a href="https://www.linkedin.com/in/jjwtimmer" target="_blank" rel="noopener noreferrer"
+                   className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full flex items-center transition duration-300">
+                  <LinkedIn className="mr-2" aria-hidden="true" />
+                  <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/jjwtimmer" target="_blank" rel="noopener noreferrer" className="bg-gray-200 hover:bg-gray-300 text-gray-900 font-bold py-2 px-4 rounded-full flex items-center transition duration-300">
+                  <GitHub className="mr-2" aria-hidden="true" />
+                  <span>GitHub</span>
+                </a>
+                <a href="https://gitlab.com/jjwtimmer" target="_blank" rel="noopener noreferrer" className="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full flex items-center transition duration-300">
+                  <GitLab className="mr-2" aria-hidden="true" />
+                  <span>GitLab</span>
+                </a>
+              </nav>
+            </div>
+          </section>
+
+          <section className="mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white mb-4 sm:mb-6">My Journey</h2>
+            <div
+                className="w-full h-[400px] sm:h-[600px] bg-white bg-opacity-10 rounded-lg overflow-hidden backdrop-blur-sm">
+              <iframe
+                  src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1F5lgbMGapUAlDsawPFXRKyjkCsq8SPttOux8bDDW3Aw&font=Default&lang=en-24hr&start_at_end=true&is_embed=true&initial_zoom=2&height=600&theme=https://jaspertimmer.nl/css/theme.css"
+                  width="100%"
+                  height="100%"
+                  className="border-0"
+                  allow="fullscreen"
+                  title="Jasper Timmer's Professional Journey Timeline"
+              ></iframe>
+            </div>
+          </section>
+        </main>
+
+        <footer className="text-center p-4 sm:p-6 text-white">
+          <p>&copy; {new Date().getFullYear()} Jasper Timmer. All rights reserved.</p>
+        </footer>
+      </div>
+    </>
+  )
 }
