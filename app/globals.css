@@ -25,3 +25,7 @@ body {
     text-wrap: balance;
   }
 }
+
+section[id] {
+  scroll-margin-top: 80px;
+}
