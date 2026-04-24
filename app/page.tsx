@@ -247,7 +247,7 @@ export default function Portfolio() {
                 {activeSkill === skill.name && (
                   <div className="absolute z-10 w-full bg-white border border-gray-200 rounded-lg shadow-lg p-4 mt-2">
                     <p className="text-sm text-gray-600">Level: {skill.level}</p>
-                    <p className="text-sm text-gray-600">Ervaring: {skill.years} jaar</p>
+                    <p className="text-sm text-gray-600">Experience: {skill.years} years</p>
                     <div className="mt-2 bg-gray-200 rounded-full h-2.5">
                       <div
                         className="bg-blue-600 h-2.5 rounded-full"
