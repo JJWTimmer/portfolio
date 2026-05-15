@@ -41,9 +41,9 @@ export default function Portfolio() {
       period: "October 2021 – Present",
       location: "Zwolle",
       bullets: [
-        "Modernised the entire backend stack: Java 8 → 17, Spring Boot 2 → 3, keeping a live food-ordering platform running throughout.",
-        "Delivered push notifications (OneSignal), Mollie payment integration, and a customer loyalty system.",
-        "Navigated multiple infra migrations between VPS and AWS environments.",
+        "Owned the architectural roadmap for a live food-ordering platform: Java 8 → 17, Spring Boot 2 → 3, zero downtime.",
+        "Designed and delivered new product features end-to-end: push notifications, Mollie payment integration, customer loyalty system.",
+        "Made infra and stack decisions under real business constraints — kept the platform running through multiple environment migrations.",
         "Stack: Java 17, Spring Boot 3, PostgreSQL, GitLab CI, AWS, Ubuntu.",
       ],
     },
@@ -76,9 +76,9 @@ export default function Portfolio() {
       period: "September 2017 – August 2018",
       location: "Rotterdam",
       bullets: [
-        "Tech lead for the Social Insights department, bridging the JVM/Scala world with the .NET platform via a purpose-built API.",
-        "Planned and executed a server migration from Rackspace to VMware on-premise using Ansible, significantly reducing hosting costs.",
-        "Collaborated with NetOps in India on server security and office IT.",
+        "Designed and built the integration API between two incompatible technology worlds — JVM/Scala data platform and .NET reporting layer — enabling a key enterprise client integration.",
+        "Architected and executed a full infra migration from Rackspace to VMware on-premise using Ansible, significantly reducing hosting costs.",
+        "Acted as technical bridge between business stakeholders and engineering teams across two continents.",
       ],
     },
     {
@@ -110,37 +110,38 @@ export default function Portfolio() {
       title: "DevOps Engineer — Belastingdienst",
       company: "Dojoo.io",
       period: "April 2025 – Present",
-      description: "Building a greenfield software system for new tax legislation with a 10-person team, introducing modern cloud-native tooling to the organisation.",
+      description: "Greenfield system for new tax legislation — designed to become a reusable blueprint for future regulatory implementations across the organisation.",
       bullets: [
-        "Designed and provisioned the full infrastructure: OpenShift cluster and Camunda BPM via GitOps and ArgoCD.",
-        "Built CI/CD pipelines with Tekton; set the engineering standard for the team.",
-        "First modules being prepared for reuse by other teams — consistently on schedule with high code quality (SonarQube + SIG metrics).",
-        "Onboarded Belastingdienst engineers to Kubernetes, feature branching, and modern DevOps practices.",
+        "Defined the system architecture: event-driven, modular, built for reuse by teams that don't yet exist.",
+        "Made key early decisions on process orchestration (Camunda BPM), API boundaries, and GitOps delivery model that now shape how other teams onboard.",
+        "First modules consistently on schedule, high code quality verified by SonarQube and SIG measurements.",
+        "Transferred architectural patterns and modern engineering practices to in-house engineers alongside delivery.",
       ],
       tech: ["OpenShift", "Quarkus", "Camunda", "ArgoCD", "Tekton", "GitOps"],
     },
     {
-      title: "Tech Lead / DevOps Engineer IAM — DICTU",
+      title: "Tech Lead / Solution Architect IAM — DICTU",
       company: "Dojoo.io",
       period: "June 2022 – May 2025",
-      description: "Led a mixed team of internal and external developers, testers, a Product Owner, and two Solution Architects on a 3-year Identity & Access Management project for a Dutch government ministry.",
+      description: "Full ownership of architecture and delivery on a 3-year Identity & Access Management platform for a Dutch government ministry — end-to-end, with a lean team of 4.",
       bullets: [
-        "Co-authored the Project Architecture document with the Infrastructure Solution Architect.",
-        "Owned everything from solution architecture and infrastructure to backend, frontend, and integrations — built by a lean team of 4 developers.",
-        "Navigated complex organisational requirements across a 3-year engagement.",
+        "Designed the full solution architecture: LDAP integration, role model, API layer, frontend, and deployment topology.",
+        "Co-authored the Project Architecture document; primary technical interface to two Solution Architects and a Project Lead.",
+        "Translated ambiguous organisational requirements into concrete, buildable specs — repeatedly.",
       ],
-      tech: ["Java 17", "Vaadin", "PostgreSQL", "LDAP", "Kubernetes", "GitLab CI", "Docker", "RHEL"],
+      tech: ["Java 17", "Spring Boot", "PostgreSQL", "LDAP", "Kubernetes", "GitLab CI", "Docker"],
     },
     {
       title: "Backend Java Developer — Schiphol Airport",
       company: "Opinity B.V.",
       period: "August 2019 – February 2021",
-      description: "Led the backend migration from end-of-life Tamino XML database to MarkLogic for a critical airport data platform.",
+      description: "Database migration and integration re-architecture for a critical operational data platform at Amsterdam Airport Schiphol.",
       bullets: [
-        "Refactored existing Java EE 8 application layer to target the new data store.",
-        "Built Ansible automation for provisioning a high-availability MarkLogic cluster with the DevOps team.",
+        "Assessed migration path from end-of-life Tamino XML store to MarkLogic; defined the integration and data model approach.",
+        "Refactored the Java EE application layer to cleanly target the new store without breaking existing consumers.",
+        "Designed and automated a high-availability MarkLogic cluster deployment with Ansible.",
       ],
-      tech: ["Java 8", "MarkLogic", "Ansible", "XML"],
+      tech: ["Java 8", "MarkLogic", "Ansible", "XML", "JavaEE"],
     },
   ]
 
@@ -187,14 +188,18 @@ export default function Portfolio() {
         <section id="about" className="mb-16">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-2/3 mb-8 md:mb-0">
-              <h2 className="text-4xl font-bold text-gray-800 mb-2">Tech Lead & Software Architect</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-2">Solution Architect & Tech Lead</h2>
               <p className="text-gray-500 mb-4">Zwolle, Netherlands · jasper@timmer.im</p>
               <p className="text-xl text-gray-600 mb-6">
-                Software engineer and tech lead with 12+ years of experience delivering enterprise and cloud-native
-                systems — from MVP to production at scale. My strength is connecting people, teams, and technology:
-                seeing the bigger picture while staying hands-on. I coach engineers, drive architectural decisions,
-                and cut through complexity to ship things that last. Pragmatic about technology: I explore new tools
-                with curiosity and choose what works long-term.
+                Software engineer turned architect with 12+ years building complex, integration-heavy systems for
+                product companies and government clients. I think in systems: how components connect, where coupling
+                hides, and what breaks at scale. I stay hands-on — reading and writing code is how I stay sharp and
+                earn trust with engineering teams.
+              </p>
+              <p className="text-xl text-gray-600 mb-6">
+                My focus is on product domains where architecture is a competitive advantage: clean API design,
+                event-driven integration, and making the right call early so teams don&apos;t pay for it later.
+                I work best in product-driven engineering organisations where depth matters more than breadth.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="https://github.com/jjwtimmer" className="text-gray-600 hover:text-gray-900" aria-label="GitHub">

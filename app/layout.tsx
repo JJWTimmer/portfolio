@@ -14,19 +14,20 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Jasper Timmer MSc. — Tech Lead & Software Architect",
+  title: "Jasper Timmer MSc. — Solution Architect & Tech Lead",
   description:
-    "Tech Lead and Software Architect with 12+ years building enterprise and cloud-native systems. Specialising in Java, Spring Boot, Kubernetes, and DevOps. Based in Zwolle, Netherlands.",
+    "Solution Architect and Tech Lead with 12+ years designing integration-heavy, cloud-native systems. Expert in Java, Spring Boot, event-driven architecture, and API design. Based in Zwolle, Netherlands.",
   keywords: [
-    "Tech Lead", "Software Architect", "Java", "Spring Boot", "Kubernetes",
-    "DevOps", "Cloud-native", "OpenShift", "Zwolle", "Netherlands",
-    "Jasper Timmer", "backend developer", "software engineer",
+    "Solution Architect", "Tech Lead", "Software Architect", "Java", "Spring Boot",
+    "Kubernetes", "event-driven architecture", "API design", "integration architecture",
+    "system design", "cloud-native", "OpenShift", "GitOps", "product engineering",
+    "Zwolle", "Netherlands", "Jasper Timmer",
   ],
   authors: [{ name: "Jasper Timmer" }],
   openGraph: {
-    title: "Jasper Timmer MSc. — Tech Lead & Software Architect",
+    title: "Jasper Timmer MSc. — Solution Architect & Tech Lead",
     description:
-      "Tech Lead and Software Architect with 12+ years building enterprise and cloud-native systems in the Netherlands.",
+      "Solution Architect and Tech Lead with 12+ years designing integration-heavy, cloud-native systems for product companies. Based in the Netherlands.",
     type: "website",
   },
 };
