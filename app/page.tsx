@@ -8,6 +8,8 @@ import { useState } from "react"
 export default function Portfolio() {
   const [activeSkill, setActiveSkill] = useState<string | null>(null)
 
+  const email = atob("amFzcGVyQHRpbW1lci5pbQ==")
+
   const skills = [
     { name: "Java", level: "Expert", years: 12 },
     { name: "Spring Boot", level: "Expert", years: 8 },
@@ -189,7 +191,7 @@ export default function Portfolio() {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-2/3 mb-8 md:mb-0">
               <h2 className="text-4xl font-bold text-white mb-2">Solution Architect & Tech Lead</h2>
-              <p className="text-slate-400 mb-4">Zwolle, Netherlands · jasper@timmer.im</p>
+              <p className="text-slate-400 mb-4">Zwolle, Netherlands · {email}</p>
               <p className="text-xl text-slate-300 mb-6">
                 Software engineer turned architect with 12+ years building complex, integration-heavy systems for
                 product companies and government clients. I think in systems: how components connect, where coupling
@@ -217,7 +219,7 @@ export default function Portfolio() {
                 <Link href="https://linkedin.com/in/jjwtimmer" className="text-slate-400 hover:text-white" aria-label="LinkedIn">
                   <Linkedin className="w-6 h-6" />
                 </Link>
-                <Link href="mailto:jasper@timmer.im" className="text-slate-400 hover:text-white" aria-label="Email">
+                <Link href={`mailto:${email}`} className="text-slate-400 hover:text-white" aria-label="Email">
                   <Mail className="w-6 h-6" />
                 </Link>
               </div>
