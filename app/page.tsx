@@ -159,7 +159,6 @@ export default function Portfolio() {
     { name: "Beginnen met Leidinggeven", issuer: "Kenneth Smit Direct", year: "2023" },
     { name: "Professional Scrum Master I", issuer: "Scrum.org", year: "2023" },
     { name: "Axway APIM Developer Track", issuer: "Axway", year: "2022" },
-    { name: "Certified ScrumMaster (CSM)", issuer: "Scrum Alliance", year: "2019" },
   ]
 
   const toggleSkillDetails = (skillName: string) => {
