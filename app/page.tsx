@@ -23,6 +23,10 @@ export default function Portfolio() {
     { name: "Terraform", level: "Intermediate", years: 4 },
     { name: "Scala", level: "Intermediate", years: 3 },
     { name: "Agile / Scrum", level: "Expert", years: 12 },
+    { name: "MongoDB", level: "Advanced", years: 5 },
+    { name: "Linux", level: "Advanced", years: 10 },
+    { name: "Jenkins", level: "Advanced", years: 7 },
+    { name: "Git", level: "Expert", years: 12 },
   ]
 
   const employers = [
