@@ -1,0 +1,19 @@
+{
+  "projectId": "72e923fa-12d0-4d8d-853d-070d058cbc46",
+  "shape": "package",
+  "pkg": "portfolio-jasper",
+  "globalName": "PortfolioJasper",
+  "buildCmd": "npm run build:components",
+  "cssEntry": "out/_next/static/css/68d21e80410fb1cf.css",
+  "extraFonts": [
+    "out/_next/static/media/4473ecc91f70f139-s.p.woff",
+    "out/_next/static/media/463dafcda517f24f-s.p.woff"
+  ],
+  "overrides": {
+    "NavHeader": {
+      "cardMode": "single",
+      "primaryStory": "Default"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}
