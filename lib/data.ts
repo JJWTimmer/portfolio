@@ -232,6 +232,76 @@ export const certifications: Certification[] = [
     {name: "Axway APIM Developer Track", issuer: "Axway", year: "2022"},
 ]
 
+export type Activity = {
+    title: string
+    subtitle: string
+    description: string
+}
+
+export const activities: Activity[] = [
+    {
+        title: "Performance Management Tool",
+        subtitle: "Personal · Ongoing",
+        description:
+            "Building a lightweight performance management tool for team leads — scoped, built, then paused pending real user feedback before pushing further. Not every side project needs to ship; some need to sit and be tested against actual use first.",
+    },
+    {
+        title: "Self-Hosted Infrastructure",
+        subtitle: "Personal · Ongoing",
+        description:
+            "Run a home lab covering email (Soverin + PGP), DNS filtering, monitoring (ELK), password management (Vaultwarden), and workflow automation (n8n) on a VPS with Tailscale networking. Where the architecture opinions get tested before they reach client work.",
+    },
+    {
+        title: "Cooking & Gardening",
+        subtitle: "Personal · Ongoing",
+        description:
+            "Kitchen and garden as the other systems I maintain — one with recipes instead of runbooks, the other with a lot more waiting for feedback loops to close.",
+    },
+    {
+        title: "Batavierenrace",
+        subtitle: "Radio Communications Team · University of Twente · 2008–2012",
+        description:
+            "Member of the radio communications team for one of the world's largest relay races (8,500 participants). Built several software systems for equipment tracking, GPS logging, and dispatch operations.",
+    },
+    {
+        title: "ForensX",
+        subtitle: "Founder & Chair · Hogeschool van Amsterdam · 2008–2010",
+        description:
+            "Founded the student association ForensX for the Forensic Science bachelor programme at the Amsterdam University of Applied Sciences.",
+    },
+]
+
+export type Profile = {
+    name: string
+    role: string
+    headline: string
+    location: string
+    bio: string[]
+    socials: {
+        github: string
+        gitlab: string
+        bitbucket: string
+        linkedin: string
+    }
+}
+
+export const profile: Profile = {
+    name: "Jasper Timmer MSc",
+    role: "SOLUTION ARCHITECT & TECH LEAD",
+    headline: "Helicopter view on the domain, tech landscape, security and teams.",
+    location: "Zwolle, Netherlands",
+    bio: [
+        "Software engineer turning architect with 13+ years building complex, integration-heavy systems for product companies and government clients. I stay hands-on — although my assistant helps me keep my overview 🤫.",
+        "Everything is connected. Business value and fast change, modern tech versus maintainability. Scalability, security. The world is changing and AI/LLMs are here to stay.",
+    ],
+    socials: {
+        github: "https://github.com/jjwtimmer",
+        gitlab: "https://gitlab.com/jjwtimmer",
+        bitbucket: "https://bitbucket.org/jjwtimmer",
+        linkedin: "https://linkedin.com/in/jjwtimmer",
+    },
+}
+
 /**
  * Base64 of the contact address — kept encoded so the plaintext never lands in
  * the statically exported HTML. Decode client-side only (see ObfuscatedEmail).

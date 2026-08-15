@@ -1,6 +1,7 @@
 import Image from "next/image"
 import ObfuscatedEmail from "./ObfuscatedEmail"
 import SocialLinks from "./SocialLinks"
+import { profile } from "@/lib/data"
 
 export default function Hero({ emailEncoded }: { emailEncoded: string }) {
   return (
@@ -8,31 +9,29 @@ export default function Hero({ emailEncoded }: { emailEncoded: string }) {
       <div className="grid gap-12 md:grid-cols-[minmax(0,1fr)_300px] items-start">
         <div>
           <span className="font-mono-geist text-xs tracking-[0.18em] text-amber-400">
-            SOLUTION ARCHITECT &amp; TECH LEAD
+            {profile.role}
           </span>
           <h1 className="mt-4 text-4xl sm:text-5xl font-bold text-white tracking-tight text-balance">
-            Helicopter view on the domain, tech landscape, security and teams.
+            {profile.headline}
           </h1>
           <p className="mt-4 font-mono-geist text-sm text-slate-500">
-            Zwolle, Netherlands ·{" "}
+            {profile.location} ·{" "}
             <ObfuscatedEmail
               encoded={emailEncoded}
               className="text-slate-500 hover:text-sky-400 no-underline transition-colors"
             />
           </p>
-          <p className="mt-6 text-lg text-slate-300 max-w-[62ch] text-pretty">
-            Software engineer turning architect with 13+ years building complex, integration-heavy systems
-            for product companies and government clients. I stay hands-on — allthough my assistant helps me keep my overview 🤫.
-          </p>
-          <p className="mt-4 text-lg text-slate-300 max-w-[62ch] text-pretty">
-            Everything is connected. Business value and fast change, modern tech versus maintainability. Scalability, security. The world is changing and AI/LLMs are here to stay.
-          </p>
+          {profile.bio.map((paragraph, i) => (
+            <p key={i} className={`text-lg text-slate-300 max-w-[62ch] text-pretty ${i === 0 ? "mt-6" : "mt-4"}`}>
+              {paragraph}
+            </p>
+          ))}
           <div className="mt-7">
             <SocialLinks
-              github="https://github.com/jjwtimmer"
-              gitlab="https://gitlab.com/jjwtimmer"
-              bitbucket="https://bitbucket.org/jjwtimmer"
-              linkedin="https://linkedin.com/in/jjwtimmer"
+              github={profile.socials.github}
+              gitlab={profile.socials.gitlab}
+              bitbucket={profile.socials.bitbucket}
+              linkedin={profile.socials.linkedin}
               emailEncoded={emailEncoded}
             />
           </div>
@@ -42,7 +41,7 @@ export default function Hero({ emailEncoded }: { emailEncoded: string }) {
           <div className="absolute -left-3 -bottom-3 w-24 h-24 bg-amber-400" aria-hidden="true" />
           <Image
             src="/img/jasper.jpg"
-            alt="Jasper Timmer"
+            alt={profile.name}
             width={300}
             height={380}
             priority

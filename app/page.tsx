@@ -11,11 +11,17 @@ import StackIndex from "@/components/StackIndex"
 import TerminalFrame from "@/components/TerminalFrame"
 import Ticker from "@/components/Ticker"
 import TimelineArchive from "@/components/TimelineArchive"
-import { skills, projects, education, certifications, EMAIL_ENCODED } from "@/lib/data"
+import { skills, projects, education, certifications, activities, EMAIL_ENCODED } from "@/lib/data"
 
 export default function Portfolio() {
   const featured = skills.filter((s) => s.featured)
   const [lead, ...rest] = projects
+  const watermarkText = lead.title.includes("—")
+    ? lead.title.split("—")[1].trim().toUpperCase()
+    : lead.company.toUpperCase()
+  const promptSlug = (lead.title.includes("—") ? lead.title.split("—")[1].trim() : lead.company)
+    .toLowerCase()
+    .replace(/\s+/g, "-")
 
   return (
     <div className="min-h-screen bg-slate-900">
@@ -45,12 +51,12 @@ export default function Portfolio() {
             style={{ color: "transparent", WebkitTextStroke: "1px #1e293b" }}
             aria-hidden="true"
           >
-            BELASTINGDIENST
+            {watermarkText}
           </div>
 
           <div className="relative container mx-auto px-6 max-w-5xl">
             <SectionLabel index="02" title="Projects" accent="text-sky-400" />
-            <TerminalFrame prompt="~/projects/belastingdienst — 02 / featured">
+            <TerminalFrame prompt={`~/projects/${promptSlug} — 02 / featured`}>
               <div className="p-1">
                 <ProjectCard
                   title={lead.title}
@@ -64,9 +70,9 @@ export default function Portfolio() {
             </TerminalFrame>
 
             <div className="grid gap-8 md:grid-cols-2 mt-8">
-              {rest.map((project, i) => (
+              {rest.map((project) => (
                 <ProjectCard
-                  key={i}
+                  key={project.title}
                   title={project.title}
                   company={project.company}
                   period={project.period}
@@ -105,8 +111,8 @@ export default function Portfolio() {
             <div>
               <h3 className="font-mono-geist text-[11px] tracking-[0.16em] uppercase text-slate-500 mb-4">Education</h3>
               <div className="space-y-3">
-                {education.map((ed, i) => (
-                  <Card key={i} className="p-4">
+                {education.map((ed) => (
+                  <Card key={`${ed.institution}-${ed.degree}`} className="p-4">
                     <p className="font-semibold text-white">{ed.degree}</p>
                     <p className="font-mono-geist text-xs text-slate-400 mt-1">
                       {ed.institution} · {ed.year}
@@ -118,8 +124,8 @@ export default function Portfolio() {
             <div>
               <h3 className="font-mono-geist text-[11px] tracking-[0.16em] uppercase text-slate-500 mb-4">Certifications</h3>
               <div className="space-y-3">
-                {certifications.map((cert, i) => (
-                  <Card key={i} className="p-4">
+                {certifications.map((cert) => (
+                  <Card key={`${cert.issuer}-${cert.name}`} className="p-4">
                     <p className="font-semibold text-white">{cert.name}</p>
                     <p className="font-mono-geist text-xs text-slate-400 mt-1">
                       {cert.issuer} · {cert.year}
@@ -135,62 +141,17 @@ export default function Portfolio() {
         <section id="interests" className="container mx-auto px-6 pt-10 pb-10">
           <SectionLabel index="06" title="Activities" accent="text-amber-400" />
           <div className="grid gap-8 md:grid-cols-2">
-            <Card className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2">Performance Management Tool</h3>
-              <p className="font-mono-geist text-xs text-slate-500 mb-3">
-                Personal · Ongoing
-              </p>
-              <p className="text-slate-300 text-pretty">
-                Building a lightweight performance management tool for team leads —
-                scoped, built, then paused pending real user feedback before pushing
-                further. Not every side project needs to ship; some need to sit and
-                be tested against actual use first.
-              </p>
-            </Card>
-            <Card className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2">Self-Hosted Infrastructure</h3>
-              <p className="font-mono-geist text-xs text-slate-500 mb-3">
-                Personal · Ongoing
-              </p>
-              <p className="text-slate-300 text-pretty">
-                Run a home lab covering email (Soverin + PGP), DNS filtering,
-                monitoring (ELK), password management (Vaultwarden), and workflow
-                automation (n8n) on a VPS with Tailscale networking. Where the
-                architecture opinions get tested before they reach client work.
-              </p>
-            </Card>
-            <Card className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2">Cooking & Gardening</h3>
-              <p className="font-mono-geist text-xs text-slate-500 mb-3">
-                Personal · Ongoing
-              </p>
-              <p className="text-slate-300 text-pretty">
-                Kitchen and garden as the other systems I maintain — one with
-                recipes instead of runbooks, the other with a lot more waiting
-                for feedback loops to close.
-              </p>
-            </Card>
-            <Card className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2">Batavierenrace</h3>
-              <p className="font-mono-geist text-xs text-slate-500 mb-3">
-                Radio Communications Team · University of Twente · 2008–2012
-              </p>
-              <p className="text-slate-300 text-pretty">
-                Member of the radio communications team for one of the world&apos;s largest relay races
-                (8,500 participants). Built several software systems for equipment tracking, GPS logging,
-                and dispatch operations.
-              </p>
-            </Card>
-            <Card className="p-6">
-              <h3 className="text-xl font-bold text-white mb-2">ForensX</h3>
-              <p className="font-mono-geist text-xs text-slate-500 mb-3">
-                Founder &amp; Chair · Hogeschool van Amsterdam · 2008–2010
-              </p>
-              <p className="text-slate-300 text-pretty">
-                Founded the student association ForensX for the Forensic Science bachelor programme at the
-                Amsterdam University of Applied Sciences.
-              </p>
-            </Card>
+            {activities.map((act) => (
+              <Card key={act.title} className="p-6">
+                <h3 className="text-xl font-bold text-white mb-2">{act.title}</h3>
+                <p className="font-mono-geist text-xs text-slate-500 mb-3">
+                  {act.subtitle}
+                </p>
+                <p className="text-slate-300 text-pretty">
+                  {act.description}
+                </p>
+              </Card>
+            ))}
           </div>
         </section>
 
