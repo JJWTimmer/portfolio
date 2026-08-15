@@ -20,7 +20,7 @@ export const LAYERS: Record<Layer, { label: string; text: string; bg: string; bo
 export const LEVELS = {
     Expert: {
         filled: 3,
-        definition: "Can teach it, break it, and fix it at 3am without panicking.\n",
+        definition: "Can teach it, break it, and fix it at 3am without panicking.",
     },
     Advanced: {
         filled: 2,
@@ -66,7 +66,7 @@ export const skills: Skill[] = [
     {name: "REST", level: "Expert", years: 13, layer: "skill"},
     {name: "SQL", level: "Expert", years: 13, layer: "skill"},
     {name: "NoSQL", level: "Advanced", years: 12, layer: "skill"},
-    {name: "AI assistants  && LLM/Agents/RAG/AGI", level: "Advanced", years: 1, layer: "skill"},
+    {name: "AI assistants && LLM/Agents/RAG/AGI", level: "Advanced", years: 1, layer: "skill"},
     {name: "BPMN", level: "Intermediate", years: 12, layer: "skill"},
     {name: "GraphQL", level: "inUse", years: 12, layer: "skill"},
     {name: "Lowcode/Nocode", level: "inUse", years: 2, layer: "skill"},

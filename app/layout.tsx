@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -14,9 +15,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jaspertimmer.nl"),
   title: "Jasper Timmer MSc — Solution Architect & Tech Lead",
   description:
-    "Solution Architect and Tech Lead with 12+ years designing integration-heavy, cloud-native systems. Expert in Java, Spring Boot, event-driven architecture, and API design. Based in Zwolle, Netherlands.",
+    "Solution Architect and Tech Lead with 13+ years designing integration-heavy, cloud-native systems. Expert in Java, Spring Boot, event-driven architecture, and API design. Based in Zwolle, Netherlands.",
   keywords: [
     "Solution Architect", "Tech Lead", "Software Architect", "Java", "Spring Boot",
     "Kubernetes", "event-driven architecture", "API design", "integration architecture",
@@ -24,11 +26,23 @@ export const metadata: Metadata = {
     "Zwolle", "Netherlands", "Jasper Timmer",
   ],
   authors: [{ name: "Jasper Timmer" }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Jasper Timmer MSc — Solution Architect & Tech Lead",
     description:
-      "Solution Architect and Tech Lead with 12+ years designing integration-heavy, cloud-native systems for product companies. Based in the Netherlands.",
+      "Solution Architect and Tech Lead with 13+ years designing integration-heavy, cloud-native systems for product companies. Based in the Netherlands.",
+    url: "https://jaspertimmer.nl",
+    siteName: "Jasper Timmer MSc",
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jasper Timmer MSc — Solution Architect & Tech Lead",
+    description:
+      "Solution Architect and Tech Lead with 13+ years designing integration-heavy, cloud-native systems. Based in Zwolle, Netherlands.",
   },
 };
 
@@ -39,17 +53,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script
-          src="https://rybbit.lab.jt-cloud.nl/api/script.js"
-          data-site-id="b6924e951f31"
-          defer
-        />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Script
+          src="https://rybbit.lab.jt-cloud.nl/api/script.js"
+          data-site-id="b6924e951f31"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
