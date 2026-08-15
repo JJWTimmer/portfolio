@@ -39,6 +39,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          src="https://rybbit.lab.jt-cloud.nl/api/script.js"
+          data-site-id="b6924e951f31"
+          defer
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
