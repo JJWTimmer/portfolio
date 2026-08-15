@@ -1,5 +1,8 @@
 import { SocialLinks } from 'portfolio-jasper'
 
+// The email prop is base64 now, not plaintext — the address is decoded on the
+// client so it never lands in the exported HTML. A plaintext value here throws
+// InvalidCharacterError inside atob. btoa("mail@jaspertimmer.nl").
 export function Default() {
   return (
     <div style={{ background: '#0f172a', padding: 24 }}>
@@ -8,7 +11,7 @@ export function Default() {
         gitlab="https://gitlab.com/jjwtimmer"
         bitbucket="https://bitbucket.org/jjwtimmer"
         linkedin="https://linkedin.com/in/jjwtimmer"
-        email="jasper@timmer.im"
+        emailEncoded="bWFpbEBqYXNwZXJ0aW1tZXIubmw="
       />
     </div>
   )
