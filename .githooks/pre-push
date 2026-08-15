@@ -1,0 +1,9 @@
+#!/bin/sh
+# Pre-push hook: run lint and typecheck
+echo "Running pre-push checks (lint & tsc)..."
+
+npm run lint || exit 1
+npm run typecheck || exit 1
+
+echo "✅ Pre-push checks passed."
+exit 0

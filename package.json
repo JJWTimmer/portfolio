@@ -10,7 +10,9 @@
     "build": "next build",
     "build:components": "tsup",
     "start": "npx serve@latest out",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "dependencies": {
     "lucide-react": "^0.446.0",
