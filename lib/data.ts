@@ -1,22 +1,54 @@
-export type Skill = { name: string; level: string; years: number }
+export type Layer = "runtime" | "data" | "delivery"
+
+export type Skill = {
+  name: string
+  level: "Expert" | "Advanced" | "Intermediate"
+  years: number
+  layer: Layer
+  /** Rendered as a large tile in 01 / SKILLS. Everything else lives in 00 / STACK INDEX. */
+  featured?: boolean
+}
+
+/** The three semantic accent layers. Tailwind classes, not hex — keeps purge happy. */
+export const LAYERS: Record<Layer, { label: string; text: string; bg: string; border: string }> = {
+  runtime:  { label: "runtime",        text: "text-amber-400",   bg: "bg-amber-400",   border: "border-amber-400" },
+  data:     { label: "data & platform", text: "text-sky-400",     bg: "bg-sky-400",     border: "border-sky-400" },
+  delivery: { label: "delivery",       text: "text-emerald-400", bg: "bg-emerald-400", border: "border-emerald-400" },
+}
+
+/** Ordinal scale — 3 segments, not a percentage. Definitions are shown, not implied. */
+export const LEVELS = {
+  Expert: {
+    filled: 3,
+    definition: "I set the direction others follow — architecture calls, deep debugging, mentoring on it.",
+  },
+  Advanced: {
+    filled: 2,
+    definition: "I ship it to production unsupervised and know its failure modes.",
+  },
+  Intermediate: {
+    filled: 1,
+    definition: "Productive and delivering with it, still reaching for the docs at the edges.",
+  },
+} as const
 
 export const skills: Skill[] = [
-  { name: "Java", level: "Expert", years: 12 },
-  { name: "Spring Boot", level: "Expert", years: 8 },
-  { name: "Python", level: "Advanced", years: 8 },
-  { name: "PostgreSQL", level: "Advanced", years: 10 },
-  { name: "Docker / Podman", level: "Advanced", years: 8 },
-  { name: "Kubernetes / OpenShift", level: "Intermediate", years: 5 },
-  { name: "AWS", level: "Advanced", years: 7 },
-  { name: "CI/CD", level: "Expert", years: 10 },
-  { name: "Ansible", level: "Advanced", years: 6 },
-  { name: "Terraform", level: "Intermediate", years: 4 },
-  { name: "Scala", level: "Intermediate", years: 3 },
-  { name: "Agile / Scrum", level: "Expert", years: 12 },
-  { name: "MongoDB", level: "Advanced", years: 5 },
-  { name: "Linux", level: "Advanced", years: 10 },
-  { name: "Jenkins", level: "Advanced", years: 7 },
-  { name: "Git", level: "Expert", years: 12 },
+  { name: "Java", level: "Expert", years: 12, layer: "runtime", featured: true },
+  { name: "Spring Boot", level: "Expert", years: 8, layer: "runtime", featured: true },
+  { name: "PostgreSQL", level: "Advanced", years: 10, layer: "data", featured: true },
+  { name: "Python", level: "Advanced", years: 8, layer: "runtime" },
+  { name: "Scala", level: "Intermediate", years: 3, layer: "runtime" },
+  { name: "MongoDB", level: "Advanced", years: 5, layer: "data" },
+  { name: "AWS", level: "Advanced", years: 7, layer: "data" },
+  { name: "Kubernetes / OpenShift", level: "Intermediate", years: 5, layer: "data" },
+  { name: "Linux", level: "Advanced", years: 10, layer: "data" },
+  { name: "CI/CD", level: "Expert", years: 10, layer: "delivery" },
+  { name: "Git", level: "Expert", years: 12, layer: "delivery" },
+  { name: "Agile / Scrum", level: "Expert", years: 12, layer: "delivery" },
+  { name: "Docker / Podman", level: "Advanced", years: 8, layer: "delivery" },
+  { name: "Ansible", level: "Advanced", years: 6, layer: "delivery" },
+  { name: "Jenkins", level: "Advanced", years: 7, layer: "delivery" },
+  { name: "Terraform", level: "Intermediate", years: 4, layer: "delivery" },
 ]
 
 export type Employer = {
@@ -178,3 +210,10 @@ export const certifications: Certification[] = [
   { name: "Professional Scrum Master I", issuer: "Scrum.org", year: "2023" },
   { name: "Axway APIM Developer Track", issuer: "Axway", year: "2022" },
 ]
+
+/**
+ * Base64 of the contact address — kept encoded so the plaintext never lands in
+ * the statically exported HTML. Decode client-side only (see ObfuscatedEmail).
+ * To change: btoa("new@address.tld") in a browser console.
+ */
+export const EMAIL_ENCODED = "bWFpbEBqYXNwZXJ0aW1tZXIubmw="

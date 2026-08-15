@@ -1,142 +1,129 @@
-"use client"
-
-import Image from "next/image"
-import NavHeader from "@/components/NavHeader"
-import Footer from "@/components/Footer"
-import SectionHeading from "@/components/SectionHeading"
 import Card from "@/components/Card"
-import SkillTile from "@/components/SkillTile"
-import JobEntry from "@/components/JobEntry"
+import ContactBlock from "@/components/ContactBlock"
+import ExperienceBand from "@/components/ExperienceBand"
+import Footer from "@/components/Footer"
+import Hero from "@/components/Hero"
+import NavHeader from "@/components/NavHeader"
 import ProjectCard from "@/components/ProjectCard"
-import SocialLinks from "@/components/SocialLinks"
-import { skills, employers, projects, education, certifications } from "@/lib/data"
+import SectionLabel from "@/components/SectionLabel"
+import SkillTile from "@/components/SkillTile"
+import StackIndex from "@/components/StackIndex"
+import TerminalFrame from "@/components/TerminalFrame"
+import Ticker from "@/components/Ticker"
+import TimelineArchive from "@/components/TimelineArchive"
+import { skills, projects, education, certifications, EMAIL_ENCODED } from "@/lib/data"
 
 export default function Portfolio() {
-  const email = atob("amFzcGVyQHRpbW1lci5pbQ==")
+  const featured = skills.filter((s) => s.featured)
+  const [lead, ...rest] = projects
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800">
+    <div className="min-h-screen bg-slate-900">
       <NavHeader />
 
-      <main className="container mx-auto px-6 py-8 pt-24">
-        {/* About */}
-        <section id="about" className="mb-16">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="md:w-2/3 mb-8 md:mb-0">
-              <h2 className="text-4xl font-bold text-white mb-2">Solution Architect & Tech Lead</h2>
-              <p className="text-slate-400 mb-4">Zwolle, Netherlands · {email}</p>
-              <p className="text-xl text-slate-300 mb-6">
-                Software engineer turned architect with 12+ years building complex, integration-heavy systems for
-                product companies and government clients. I think in systems: how components connect, where coupling
-                hides, and what breaks at scale. I stay hands-on — reading and writing code is how I stay sharp and
-                earn trust with engineering teams.
-              </p>
-              <p className="text-xl text-slate-300 mb-6">
-                My focus is on product domains where architecture is a competitive advantage: clean API design,
-                event-driven integration, and making the right call early so teams don&apos;t pay for it later.
-                I work best in product-driven engineering organisations where depth matters more than breadth.
-              </p>
-              <SocialLinks
-                github="https://github.com/jjwtimmer"
-                gitlab="https://gitlab.com/jjwtimmer"
-                bitbucket="https://bitbucket.org/jjwtimmer"
-                linkedin="https://linkedin.com/in/jjwtimmer"
-                email={email}
-              />
-            </div>
-            <div className="md:w-1/4">
-              <Image
-                src="/img/jasper.jpg"
-                alt="Jasper Timmer"
-                width={250}
-                height={250}
-                className="rounded-full"
-              />
-            </div>
-          </div>
-        </section>
+      <Hero emailEncoded={EMAIL_ENCODED} />
 
+      <Ticker items={skills.map((s) => s.name)} />
+
+      <StackIndex />
+
+      <div className="blueprint-grid">
         {/* Skills */}
-        <section id="skills" className="mb-16">
-          <SectionHeading>Skills</SectionHeading>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {skills.map((skill) => (
-              <SkillTile key={skill.name} name={skill.name} level={skill.level} years={skill.years} />
-            ))}
-          </div>
-        </section>
-
-        {/* Experience */}
-        <section id="experience" className="mb-16">
-          <SectionHeading>Work Experience</SectionHeading>
-          <div className="space-y-6">
-            {employers.map((job, i) => (
-              <JobEntry
-                key={i}
-                role={job.role}
-                company={job.company}
-                period={job.period}
-                location={job.location}
-                bullets={job.bullets}
-              />
+        <section id="skills" className="container mx-auto px-6 pt-20 pb-14">
+          <SectionLabel index="01" title="Skills" accent="text-amber-400" meta="years in anger" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 border-l border-slate-800">
+            {featured.map((skill, i) => (
+              <SkillTile key={skill.name} skill={skill} offset={i * 40} />
             ))}
           </div>
         </section>
 
         {/* Projects */}
-        <section id="projects" className="mb-16">
-          <SectionHeading>Projects</SectionHeading>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project, i) => (
-              <ProjectCard
-                key={i}
-                title={project.title}
-                company={project.company}
-                period={project.period}
-                description={project.description}
-                bullets={project.bullets}
-                tech={project.tech}
-              />
-            ))}
+        <section id="projects" className="relative overflow-hidden bg-slate-950 border-y border-slate-800 py-20">
+          <div
+            className="pointer-events-none select-none absolute left-1/2 top-8 -translate-x-1/2 w-[1600px] text-center font-mono-geist text-[168px] font-bold leading-none tracking-tighter"
+            style={{ color: "transparent", WebkitTextStroke: "1px #1e293b" }}
+            aria-hidden="true"
+          >
+            BELASTINGDIENST
+          </div>
+
+          <div className="relative container mx-auto px-6 max-w-5xl">
+            <SectionLabel index="02" title="Projects" accent="text-sky-400" />
+            <TerminalFrame prompt="~/projects/belastingdienst — 02 / featured">
+              <div className="p-1">
+                <ProjectCard
+                  title={lead.title}
+                  company={lead.company}
+                  period={lead.period}
+                  description={lead.description}
+                  bullets={lead.bullets}
+                  tech={lead.tech}
+                />
+              </div>
+            </TerminalFrame>
+
+            <div className="grid gap-8 md:grid-cols-2 mt-8">
+              {rest.map((project, i) => (
+                <ProjectCard
+                  key={i}
+                  title={project.title}
+                  company={project.company}
+                  period={project.period}
+                  description={project.description}
+                  bullets={project.bullets}
+                  tech={project.tech}
+                />
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Career Timeline */}
-        <section id="resume" className="mb-16">
-          <SectionHeading>Career Timeline</SectionHeading>
-          <Card className="p-6">
-            <iframe
-              src="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1F5lgbMGapUAlDsawPFXRKyjkCsq8SPttOux8bDDW3Aw&font=Default&lang=en-24hr&start_at_end=true&hash_bookmark=true&initial_zoom=2&height=650"
-              width="100%"
-              height="650"
-              style={{ border: "none" }}
-              title="Career Timeline for Jasper Timmer"
-            />
-          </Card>
+        {/* Experience */}
+        <section id="experience" className="container mx-auto px-6 pt-20 pb-10">
+          <SectionLabel index="03" title="Experience" accent="text-emerald-400" />
+          <ExperienceBand />
         </section>
 
-        {/* Education & Certifications */}
-        <section id="education" className="mb-16">
-          <SectionHeading>Education & Certifications</SectionHeading>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Career timeline archive */}
+        <section id="resume" className="container mx-auto px-6 pt-10 pb-4">
+          <TimelineArchive />
+          <a
+            href="https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1F5lgbMGapUAlDsawPFXRKyjkCsq8SPttOux8bDDW3Aw&font=Default&lang=en-24hr&start_at_end=true&initial_zoom=2&height=650"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-3.5 font-mono-geist text-xs tracking-wide text-slate-600 hover:text-sky-400 no-underline transition-colors"
+          >
+            open in new tab ↗
+          </a>
+        </section>
+
+        {/* Education & certifications */}
+        <section id="education" className="container mx-auto px-6 pt-20 pb-10">
+          <SectionLabel index="05" title="Education &amp; certifications" accent="text-sky-400" />
+          <div className="grid gap-8 md:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold text-slate-300 mb-4">Education</h3>
+              <h3 className="font-mono-geist text-[11px] tracking-[0.16em] uppercase text-slate-500 mb-4">Education</h3>
               <div className="space-y-3">
                 {education.map((ed, i) => (
                   <Card key={i} className="p-4">
                     <p className="font-semibold text-white">{ed.degree}</p>
-                    <p className="text-sm text-slate-400">{ed.institution} · {ed.year}</p>
+                    <p className="font-mono-geist text-xs text-slate-400 mt-1">
+                      {ed.institution} · {ed.year}
+                    </p>
                   </Card>
                 ))}
               </div>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-slate-300 mb-4">Certifications</h3>
+              <h3 className="font-mono-geist text-[11px] tracking-[0.16em] uppercase text-slate-500 mb-4">Certifications</h3>
               <div className="space-y-3">
                 {certifications.map((cert, i) => (
                   <Card key={i} className="p-4">
                     <p className="font-semibold text-white">{cert.name}</p>
-                    <p className="text-sm text-slate-400">{cert.issuer} · {cert.year}</p>
+                    <p className="font-mono-geist text-xs text-slate-400 mt-1">
+                      {cert.issuer} · {cert.year}
+                    </p>
                   </Card>
                 ))}
               </div>
@@ -145,27 +132,35 @@ export default function Portfolio() {
         </section>
 
         {/* Interests */}
-        <section id="interests" className="mb-16">
-          <SectionHeading>Interests & Activities</SectionHeading>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <section id="interests" className="container mx-auto px-6 pt-10 pb-10">
+          <SectionLabel index="06" title="Activities" accent="text-amber-400" />
+          <div className="grid gap-8 md:grid-cols-2">
             <Card className="p-6">
               <h3 className="text-xl font-bold text-white mb-2">Batavierenrace</h3>
-              <p className="text-sm text-slate-400 mb-2">Radio Communications Team · University of Twente · 2008–2012</p>
-              <p className="text-slate-300">
-                Member of the radio communications team for one of the world&apos;s largest relay races (8,500 participants).
-                Built several software systems for equipment tracking, GPS logging, and dispatch operations.
+              <p className="font-mono-geist text-xs text-slate-500 mb-3">
+                Radio Communications Team · University of Twente · 2008–2012
+              </p>
+              <p className="text-slate-300 text-pretty">
+                Member of the radio communications team for one of the world&apos;s largest relay races
+                (8,500 participants). Built several software systems for equipment tracking, GPS logging,
+                and dispatch operations.
               </p>
             </Card>
             <Card className="p-6">
               <h3 className="text-xl font-bold text-white mb-2">ForensX</h3>
-              <p className="text-sm text-slate-400 mb-2">Founder & Chair · Hogeschool van Amsterdam · 2008–2010</p>
-              <p className="text-slate-300">
-                Founded the student association ForensX for the Forensic Science bachelor programme at the Amsterdam University of Applied Sciences.
+              <p className="font-mono-geist text-xs text-slate-500 mb-3">
+                Founder &amp; Chair · Hogeschool van Amsterdam · 2008–2010
+              </p>
+              <p className="text-slate-300 text-pretty">
+                Founded the student association ForensX for the Forensic Science bachelor programme at the
+                Amsterdam University of Applied Sciences.
               </p>
             </Card>
           </div>
         </section>
-      </main>
+
+        <ContactBlock emailEncoded={EMAIL_ENCODED} />
+      </div>
 
       <Footer />
     </div>
