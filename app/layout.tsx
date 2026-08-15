@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Jasper Timmer MSc. — Solution Architect & Tech Lead",
+  title: "Jasper Timmer MSc — Solution Architect & Tech Lead",
   description:
     "Solution Architect and Tech Lead with 12+ years designing integration-heavy, cloud-native systems. Expert in Java, Spring Boot, event-driven architecture, and API design. Based in Zwolle, Netherlands.",
   keywords: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Jasper Timmer" }],
   openGraph: {
-    title: "Jasper Timmer MSc. — Solution Architect & Tech Lead",
+    title: "Jasper Timmer MSc — Solution Architect & Tech Lead",
     description:
       "Solution Architect and Tech Lead with 12+ years designing integration-heavy, cloud-native systems for product companies. Based in the Netherlands.",
     type: "website",
