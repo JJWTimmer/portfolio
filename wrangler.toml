@@ -1,0 +1,8 @@
+name = "portfolio-jasper"
+compatibility_date = "2026-08-15"
+
+# Static-assets-only Worker: no entry script, Cloudflare serves out/ directly.
+# `out/` is produced by `npm run build` (next.config.mjs → output: 'export').
+[assets]
+directory = "out"
+not_found_handling = "404-page"
