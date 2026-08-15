@@ -4,10 +4,10 @@
   "pkg": "portfolio-jasper",
   "globalName": "PortfolioJasper",
   "buildCmd": "npm run build:components",
-  "cssEntry": "out/_next/static/css/2e86da90b6aaed6b.css",
+  "cssEntry": "out/_next/static/chunks/0u1r2z6hdi98i.css",
   "extraFonts": [
-    "out/_next/static/media/4473ecc91f70f139-s.p.woff",
-    "out/_next/static/media/463dafcda517f24f-s.p.woff"
+    "out/_next/static/media/GeistVF-s.p.0e569l9b0bre8.woff",
+    "out/_next/static/media/GeistMonoVF-s.p.1lv5tp2fpjxdz.woff"
   ],
   "overrides": {
     "NavHeader": {

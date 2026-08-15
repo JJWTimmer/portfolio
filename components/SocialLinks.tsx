@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { Github, Gitlab, Linkedin, Mail } from "lucide-react"
 import BitbucketIcon from "@/components/BitbucketIcon"
+import { useDecodedEmail } from "@/lib/useDecodedEmail"
 
 export default function SocialLinks({
   github,
@@ -17,11 +17,8 @@ export default function SocialLinks({
   linkedin: string
   emailEncoded: string
 }) {
-  // Decoded after hydration only — keeps the address out of the exported HTML.
-  const [email, setEmail] = useState<string | null>(null)
-  useEffect(() => {
-    setEmail(atob(emailEncoded))
-  }, [emailEncoded])
+  // Decoded on the client only — keeps the address out of the exported HTML.
+  const email = useDecodedEmail(emailEncoded)
   return (
     <div className="flex flex-wrap gap-4">
       <a href={github} className="text-slate-400 hover:text-white" aria-label="GitHub">
