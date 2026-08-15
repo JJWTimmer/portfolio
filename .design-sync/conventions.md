@@ -12,9 +12,9 @@ Tailwind CSS utility classes, dark slate palette. Real class families this desig
 |---|---|
 | Card / surface background | `bg-slate-700`, `bg-slate-600` (hover/nested), `bg-slate-900` / `bg-slate-950` (page/header/footer) |
 | Text | `text-white` (headings), `text-slate-100`/`text-slate-300` (body), `text-slate-400` (secondary/meta) |
-| Accent | `bg-blue-400` (skill-level progress bar fill) |
+| Accent | Three semantic layers, never a single accent: `amber-400` (runtime), `sky-400` (data & platform), `emerald-400` (delivery). Each ships as `bg-`/`text-`/`border-` — `LAYERS` in the source maps layer → class trio, and `LevelSegments`/`SkillTile`/`StackIndex` take the `bg-` class as a prop. |
 | Shape | `rounded-lg` (cards), `rounded` (badges), `rounded-full` (avatar, progress bar) |
-| Elevation | `shadow`, `shadow-md`, `shadow-lg` |
+| Elevation | `shadow` (cards), `shadow-md` (fixed header). Borders carry most separation: `border-slate-800` on dark surfaces, `border-slate-900` for row rules. |
 | Weight | `font-bold` (headings), `font-semibold`/`font-medium` (labels) |
 
 No CSS-in-JS, no design tokens/CSS custom properties — style purely via Tailwind utility className strings, matching the vocabulary above. `Card`'s `className` prop is the padding-variant lever (`p-4` for compact list cards, `p-6` for content cards) — the base `bg-slate-700 rounded-lg shadow` is fixed in the component.

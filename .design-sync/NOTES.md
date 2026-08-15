@@ -18,6 +18,15 @@ None currently — validate reports 21/21 previews render cleanly after the fixe
 
 `SkillTile` and `SocialLinks` previews were stale rather than thin, and threw real errors: `SkillTile`'s props changed from `{name, level, years}` to `{skill, offset}` in the v2 port, and `SocialLinks` took plaintext `email` before the address moved to base64 `emailEncoded` (a plaintext value there throws `InvalidCharacterError` inside `atob`). **Authored previews are hand-written and not type-checked against the component** — a breaking prop change will not fail the build, it will surface as a render error at validate time.
 
+## Conventions drift (found on the 2026-08-15 re-sync)
+
+The v2 port silently invalidated two rows of `conventions.md`'s class table, and nothing caught it until the header re-validation pass — a build and a clean render check both pass with a conventions file full of dead class names, because nothing type-checks prose against the compiled CSS.
+
+- `bg-blue-400` (documented as "skill-level progress bar fill") no longer exists anywhere. The single-accent progress bar was replaced by the three-layer amber/sky/emerald system (`LAYERS` in `lib/data.ts`).
+- `shadow-lg` no longer exists; only `shadow` and `shadow-md` survive, with borders carrying most separation.
+
+Both were corrected in place. This matters more than a normal doc rot: `conventions.md` is inlined into the *design agent's* system prompt, so a dead class name there means every design it builds writes vocabulary that resolves to nothing and ships silently unstyled. **Re-validate every class, token, and component name in `conventions.md` against the compiled `ds-bundle/_ds_bundle.css` and `ds-bundle/components/general/` on every re-sync** — grep, don't eyeball.
+
 ## Re-sync risks
 
 - The `cssEntry` hash (see above) is the single most likely thing to silently go stale — it's a committed literal path to a build artifact whose name Next.js regenerates. A re-sync should always `npm run build` first and sanity-check the hash still matches before trusting a cached `cssEntry`.
