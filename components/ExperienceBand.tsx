@@ -41,11 +41,11 @@ export default function ExperienceBand() {
         )
         return (
           <div
-            key={i}
+            key={`${job.company}-${job.period}`}
             className={`grid gap-x-7 items-start ${left ? "md:grid-cols-[132px_minmax(0,1fr)]" : "md:grid-cols-[minmax(0,1fr)_132px]"}`}
           >
-            {left ? year : entry}
-            {left ? entry : year}
+            <div className={left ? "md:order-1" : "md:order-2"}>{year}</div>
+            <div className={left ? "md:order-2" : "md:order-1"}>{entry}</div>
           </div>
         )
       })}

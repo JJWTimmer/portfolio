@@ -20,7 +20,9 @@ export default function NavHeader() {
     <header className="fixed top-0 left-0 right-0 bg-slate-900/90 backdrop-blur shadow-md z-50">
       <div className="container mx-auto px-6 py-4">
         <nav className="flex justify-between items-center gap-4">
-          <h1 className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap shrink-0">Jasper Timmer MSc</h1>
+          <Link href="#about" className="text-lg sm:text-2xl font-bold text-white whitespace-nowrap shrink-0 hover:text-amber-400 transition-colors">
+            Jasper Timmer MSc
+          </Link>
 
           <div className="hidden md:flex space-x-4">
             {NAV_LINKS.map((link) => (

@@ -10,9 +10,9 @@ export default function Hero({ emailEncoded }: { emailEncoded: string }) {
           <span className="font-mono-geist text-xs tracking-[0.18em] text-amber-400">
             SOLUTION ARCHITECT &amp; TECH LEAD
           </span>
-          <h2 className="mt-4 text-4xl sm:text-5xl font-bold text-white tracking-tight text-balance">
-            I think in systems: how components connect, where coupling hides, and what breaks at scale.
-          </h2>
+          <h1 className="mt-4 text-4xl sm:text-5xl font-bold text-white tracking-tight text-balance">
+            Helicopter view on the domain, tech landscape, security and teams.
+          </h1>
           <p className="mt-4 font-mono-geist text-sm text-slate-500">
             Zwolle, Netherlands ·{" "}
             <ObfuscatedEmail
@@ -21,13 +21,11 @@ export default function Hero({ emailEncoded }: { emailEncoded: string }) {
             />
           </p>
           <p className="mt-6 text-lg text-slate-300 max-w-[62ch] text-pretty">
-            Software engineer turned architect with 12+ years building complex, integration-heavy systems
-            for product companies and government clients. I stay hands-on — reading and writing code is how
-            I stay sharp and earn trust with engineering teams.
+            Software engineer turning architect with 13+ years building complex, integration-heavy systems
+            for product companies and government clients. I stay hands-on — allthough my assistant helps me keep my overview 🤫.
           </p>
           <p className="mt-4 text-lg text-slate-300 max-w-[62ch] text-pretty">
-            My focus is on product domains where architecture is a competitive advantage: clean API design,
-            event-driven integration, and making the right call early so teams don&apos;t pay for it later.
+            Everything is connected. Business value and fast change, modern tech versus maintainability. Scalability, security. The world is changing and AI/LLMs are here to stay.
           </p>
           <div className="mt-7">
             <SocialLinks

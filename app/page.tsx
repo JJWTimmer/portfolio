@@ -136,6 +136,41 @@ export default function Portfolio() {
           <SectionLabel index="06" title="Activities" accent="text-amber-400" />
           <div className="grid gap-8 md:grid-cols-2">
             <Card className="p-6">
+              <h3 className="text-xl font-bold text-white mb-2">Performance Management Tool</h3>
+              <p className="font-mono-geist text-xs text-slate-500 mb-3">
+                Personal · Ongoing
+              </p>
+              <p className="text-slate-300 text-pretty">
+                Building a lightweight performance management tool for team leads —
+                scoped, built, then paused pending real user feedback before pushing
+                further. Not every side project needs to ship; some need to sit and
+                be tested against actual use first.
+              </p>
+            </Card>
+            <Card className="p-6">
+              <h3 className="text-xl font-bold text-white mb-2">Self-Hosted Infrastructure</h3>
+              <p className="font-mono-geist text-xs text-slate-500 mb-3">
+                Personal · Ongoing
+              </p>
+              <p className="text-slate-300 text-pretty">
+                Run a home lab covering email (Soverin + PGP), DNS filtering,
+                monitoring (ELK), password management (Vaultwarden), and workflow
+                automation (n8n) on a VPS with Tailscale networking. Where the
+                architecture opinions get tested before they reach client work.
+              </p>
+            </Card>
+            <Card className="p-6">
+              <h3 className="text-xl font-bold text-white mb-2">Cooking & Gardening</h3>
+              <p className="font-mono-geist text-xs text-slate-500 mb-3">
+                Personal · Ongoing
+              </p>
+              <p className="text-slate-300 text-pretty">
+                Kitchen and garden as the other systems I maintain — one with
+                recipes instead of runbooks, the other with a lot more waiting
+                for feedback loops to close.
+              </p>
+            </Card>
+            <Card className="p-6">
               <h3 className="text-xl font-bold text-white mb-2">Batavierenrace</h3>
               <p className="font-mono-geist text-xs text-slate-500 mb-3">
                 Radio Communications Team · University of Twente · 2008–2012

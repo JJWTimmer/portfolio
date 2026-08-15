@@ -3,7 +3,7 @@ import LevelSegments from "./LevelSegments"
 import LevelLegend from "./LevelLegend"
 import SectionLabel from "./SectionLabel"
 
-const ORDER: Layer[] = ["runtime", "data", "delivery"]
+const ORDER: Layer[] = ["tech", "platform", "skill"]
 
 export default function StackIndex() {
   return (

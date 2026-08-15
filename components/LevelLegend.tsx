@@ -1,10 +1,10 @@
 import { LEVELS } from "@/lib/data"
 
 const ENTRIES: { label: string; filled: number; definition: string }[] = [
-  { label: "Expert", filled: 3, definition: LEVELS.Expert.definition },
-  { label: "Advanced", filled: 2, definition: LEVELS.Advanced.definition },
-  { label: "Intermediate", filled: 1, definition: LEVELS.Intermediate.definition },
-  { label: "In use", filled: 0, definition: "Part of the daily stack, not self-rated — ask me and I'll be straight about it." },
+  { label: "Expert", filled: LEVELS.Expert.filled, definition: LEVELS.Expert.definition },
+  { label: "Advanced", filled: LEVELS.Advanced.filled, definition: LEVELS.Advanced.definition },
+  { label: "Intermediate", filled: LEVELS.Intermediate.filled, definition: LEVELS.Intermediate.definition },
+  { label: "In use", filled: LEVELS.inUse.filled, definition: LEVELS.inUse.definition },
 ]
 
 export default function LevelLegend() {
