@@ -25,7 +25,6 @@ Drop-in files mirroring `portfolio-jasper/` paths. Copy over the same paths.
 2. **Featured skills** are Java, Spring Boot, PostgreSQL (the three large tiles). Flip `featured` in `lib/data.ts` to change.
 3. **`hash_bookmark=true` removed** from the TimelineJS URL — it rewrites `location.hash` and breaks the nav anchors.
 4. **Portrait** is now a 300×380 grayscale rectangle with an amber block behind it, not a `rounded-full` avatar. `public/img/jasper.jpg` is cropped by `object-cover`; if the crop is bad, adjust `object-position`.
-5. **Email obfuscation dropped.** `page.tsx` had `atob(...)`; it is now a plain constant since the address is rendered at 48px anyway. Restore the `atob` call if you want the token gesture back.
 
 ## Not touched
 `NavHeader`, `Footer`, `Card`, `Badge`, `JobEntry`, `ProjectCard`, `SocialLinks`, `SectionHeading`, `BitbucketIcon`, `app/layout.tsx`, tailwind/next config.
