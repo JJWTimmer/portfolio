@@ -87,7 +87,7 @@ export const employers: Employer[] = [
         period: "March 2022 – Present",
         location: "Zwolle",
         bullets: [
-            "Led the pivot of an internal IT team into an external consultancy, defining new ways of working and positioning.",
+            "Guided the pivot of an internal IT team into an external consultancy, defining new ways of working and positioning.",
             "Mentored 3 engineers through the transition into a consultancy role — career growth, client communication, and technical leadership.",
             "Embedded in client teams as Tech Lead, Scrum Master, and DevOps engineer; coach client-side team leads on architecture decisions and debugging approaches.",
         ],
@@ -101,7 +101,7 @@ export const employers: Employer[] = [
             "Owned the architectural roadmap for a live food-ordering platform: Java 8 → 17, Spring Boot 2 → 3, zero downtime.",
             "Designed and delivered new product features end-to-end: push notifications, Mollie payment integration, customer loyalty system.",
             "Made infra and stack decisions under real business constraints — kept the platform running through multiple environment migrations.",
-            "Stack: Java 17, Spring Boot 3, PostgreSQL, GitLab CI, AWS, Ubuntu.",
+            "Stack: Java 17, Spring Boot 3, PostgreSQL/PostGIS, GitLab CI, Docker, AWS, Ubuntu.",
         ],
     },
     {
@@ -136,6 +136,7 @@ export const employers: Employer[] = [
             "Designed and built the integration API between two incompatible technology worlds — JVM/Scala data platform and .NET reporting layer — enabling a key enterprise client integration.",
             "Architected and executed a full infra migration from Rackspace to VMware on-premise using Ansible, significantly reducing hosting costs.",
             "Acted as technical bridge between business stakeholders and engineering teams across two continents.",
+            "Stack: Java/Scala, REST, Ubuntu, Ansible.",
         ],
     },
     {
@@ -158,6 +159,7 @@ export const employers: Employer[] = [
             "Started my career maintaining and extending a Java 6 codebase in the process industry — end-to-end: requirements, build, test.",
             "Built DevOps automation with Docker, Jenkins, Rundeck, and Nexus; automated TEST environment rollouts used company-wide.",
             "Improved and automated Cucumber test suite, delivering major quality and developer experience gains.",
+            "Stack: Java 6, Spring, Turbine, Velocity, PostgreSQL, MS SQL, Oracle, Git, Scrum, Jenkins, Docker, Rundeck, Cucumber",
         ],
     },
 ]
@@ -177,14 +179,14 @@ export const projects: Project[] = [
         company: "Dojoo.io",
         period: "April 2025 – Present",
         description:
-            "Greenfield system for new tax legislation — designed to become a reusable blueprint for future regulatory implementations across the organisation.",
+            "Greenfield system for new tax legislation — designed to become a reusable blueprint for future regulatory implementations across the department.",
         bullets: [
-            "Defined the system architecture: event-driven, modular, built for reuse by teams that don't yet exist.",
-            "Made key early decisions on process orchestration (Camunda BPM), API boundaries, and GitOps delivery model that now shape how other teams onboard.",
-            "First modules consistently on schedule, high code quality verified by SonarQube and SIG measurements.",
-            "Transferred architectural patterns and modern engineering practices to in-house engineers alongside delivery.",
+            "Collaboration with the Solution Architect and team on a solid building block for future regulatory implementation.",
+            "Led a team effort to get high code quality verified by SonarQube and SIG measurements.",
+            "Built OTA environment for the team on OpenShift with performing Tekton pipelines and ArgoCD featurebranch deployments.",
+            "Conforming to organizational Golden Path for software delivery including Observablitiy, Security and Integration best practices.",
         ],
-        tech: ["OpenShift", "Quarkus", "Camunda", "ArgoCD", "Tekton", "GitOps"],
+        tech: ["Java 21", "Quarkus", "Camunda", "GitOps", "MQ", "OpenShift", "Tekton", "ArgoCD"],
     },
     {
         title: "Tech Lead / Solution Architect IAM — DICTU",
@@ -194,32 +196,31 @@ export const projects: Project[] = [
             "Full ownership of architecture and delivery on a 3-year Identity & Access Management platform for a Dutch government ministry — end-to-end, with a lean team of 4.",
         bullets: [
             "Designed the full solution architecture: LDAP integration, role model, API layer, frontend, and deployment topology.",
-            "Co-authored the Project Architecture document; primary technical interface to two Solution Architects and a Project Lead.",
+            "Co-authored the Project Architecture document; primary technical interface to two Solution Architects and Project Lead.",
             "Translated ambiguous organisational requirements into concrete, buildable specs — repeatedly.",
         ],
-        tech: ["Java 17", "Spring Boot", "PostgreSQL", "LDAP", "Kubernetes", "GitLab CI", "Docker"],
+        tech: ["Java 17", "Spring Boot", "PostgreSQL", "LDAP", "Vaadin", "GitLab CI", "Docker", "RHEL"],
     },
     {
         title: "Backend Java Developer — Schiphol Airport",
         company: "Opinity B.V.",
         period: "August 2019 – February 2021",
         description:
-            "Database migration and integration re-architecture for a critical operational data platform at Amsterdam Airport Schiphol.",
+            "NoSQL Database migration for a critical operational data platform at Amsterdam Airport Schiphol.",
         bullets: [
-            "Assessed migration path from end-of-life Tamino XML store to MarkLogic; defined the integration and data model approach.",
-            "Refactored the Java EE application layer to cleanly target the new store without breaking existing consumers.",
-            "Designed and automated a high-availability MarkLogic cluster deployment with Ansible.",
+            "Refactored the Java EE datalayer for a number of supporting applications to swap Tamino XML store to Marklogic.",
+            "Given guidance to the team to automate deployment of a high-availability MarkLogic cluster with Ansible.",
         ],
-        tech: ["Java 8", "MarkLogic", "Ansible", "XML", "JavaEE"],
+        tech: ["Java 8", "JavaEE", "Camel", "MarkLogic", "Ansible", "XML", "XQuery"],
     },
 ]
 
 export type Education = { degree: string; institution: string; year: string }
 
 export const education: Education[] = [
-    {degree: "MSc, Software Engineering", institution: "University of Amsterdam", year: "2013"},
+    {degree: "Master of Science, Software Engineering", institution: "University of Amsterdam", year: "2013"},
     {degree: "Pre-master, Computer Science", institution: "University of Amsterdam", year: "2011"},
-    {degree: "BASc, Forensic Science", institution: "Amsterdam University of Applied Sciences", year: "2010"},
+    {degree: "Bachelor of Applied Science, Forensic Science", institution: "Amsterdam University of Applied Sciences", year: "2010"},
     {degree: "Propaedeutic, Computer Science", institution: "Amsterdam University of Applied Sciences", year: "2008"},
 ]
 
@@ -288,11 +289,11 @@ export type Profile = {
 export const profile: Profile = {
     name: "Jasper Timmer MSc",
     role: "SOLUTION ARCHITECT & TECH LEAD",
-    headline: "Helicopter view on the domain, tech landscape, security and teams.",
+    headline: "Architecting robust systems, grounded in production reality.",
     location: "Zwolle, Netherlands",
     bio: [
-        "Software engineer turning architect with 13+ years building complex, integration-heavy systems for product companies and government clients. I stay hands-on — although my assistant helps me keep my overview 🤫.",
-        "Everything is connected. Business value and fast change, modern tech versus maintainability. Scalability, security. The world is changing and AI/LLMs are here to stay.",
+        "Solution Architect & Tech Lead with 13+ years of experience building mission-critical platforms. Hands-on backend experience, solid technical trade-offs, and practical team guidance.",
+        "I connect the dots between business domain, system landscape, and the engineers building it.",
     ],
     socials: {
         github: "https://github.com/jjwtimmer",
