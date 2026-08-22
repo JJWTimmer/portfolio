@@ -1,6 +1,7 @@
 import Image from "next/image"
 import ObfuscatedEmail from "./ObfuscatedEmail"
 import SocialLinks from "./SocialLinks"
+import TerminalFrame from "./TerminalFrame"
 import { profile } from "@/lib/data"
 
 export default function Hero({ emailEncoded }: { emailEncoded: string }) {
@@ -37,19 +38,17 @@ export default function Hero({ emailEncoded }: { emailEncoded: string }) {
           </div>
         </div>
 
-        <div className="relative w-full max-w-[300px] justify-self-start md:justify-self-end">
-          <div className="absolute -left-3 -bottom-3 w-24 h-24 bg-amber-400" aria-hidden="true" />
-          <Image
-            src="/img/jasper.jpg"
-            alt={profile.name}
-            width={300}
-            height={380}
-            priority
-            className="relative w-full h-[380px] object-cover grayscale contrast-[1.05] border border-slate-800"
-          />
-          <span className="absolute -left-3.5 bottom-6 origin-bottom-left -rotate-90 font-mono-geist text-[10px] tracking-[0.24em] uppercase text-slate-500">
-            ./portrait.jpg
-          </span>
+        <div className="w-full max-w-[300px] justify-self-start md:justify-self-end">
+          <TerminalFrame prompt="./portrait.jpg">
+            <Image
+              src="/img/jasper.jpg"
+              alt={profile.name}
+              width={300}
+              height={380}
+              priority
+              className="w-full h-[380px] object-cover grayscale sepia-[70%] saturate-[2.2] contrast-[1.1]"
+            />
+          </TerminalFrame>
         </div>
       </div>
     </header>

@@ -7,6 +7,13 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      screens: {
+        DEFAULT: "100%",
+        xl: "1180px",
+      },
+    },
     extend: {},
   },
   plugins: [],
